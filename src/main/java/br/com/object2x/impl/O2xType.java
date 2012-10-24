@@ -8,6 +8,8 @@ package br.com.object2x.impl;
 public enum O2xType {
 
 	JSON,
-	XML;
+	XML,
+	CSV,
+	XLS;
 	
 }

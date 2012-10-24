@@ -1,16 +1,19 @@
 package br.com.object2x.impl;
 
+import java.awt.List;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.apache.commons.io.IOUtils;
 
 import br.com.object2x.AbstractO2x;
 import br.com.object2x.TransformStrategy;
 import br.com.object2x.exception.O2xTransformException;
+import br.com.object2x.utils.ReflectionUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,6 +36,15 @@ final class O2Json extends AbstractO2x {
 		super(transformStrategy);
 		gsonBuilder = new GsonBuilder().setDateFormat(transformStrategy.getDateFormat());
 	}
+
+	
+	
+	@Override
+	public <T> T deserialize(String serialized, GenericsTypeClass<T> typedClazz)
+			throws O2xTransformException {
+		Gson gson = this.gsonBuilder.create();
+		return gson.fromJson(serialized,typedClazz.getType());
+	}
 	
 	
 	/**
@@ -41,7 +53,7 @@ final class O2Json extends AbstractO2x {
 	@Override
 	public <T>T deserialize(String serialized, Class<T> clazz) throws O2xTransformException {
 		Gson gson = this.gsonBuilder.create();
-		return gson.fromJson(serialized,clazz);
+		return gson.fromJson(serialized,clazz); 
 		
 	}
 
@@ -113,4 +125,29 @@ final class O2Json extends AbstractO2x {
 		return in;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		ReflectionUtils.getTypeGenericInstance(List.class);
+	}
+	
 }

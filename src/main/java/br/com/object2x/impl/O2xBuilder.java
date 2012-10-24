@@ -53,4 +53,13 @@ public class O2xBuilder {
 		return new O2Json(this.transformStrategy);
 	}
 	
+	
+	public void resetStrategy(){
+		this.transformStrategy = new TransformStrategy();
+	}
+	
+	public void setTransformStrategy(TransformStrategy transformStrategy){
+		this.transformStrategy = transformStrategy;
+	}
+	
 }

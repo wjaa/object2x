@@ -8,12 +8,12 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
 import br.com.object2x.exception.O2xTransformException;
-import br.com.object2x.impl.O2xBuilder;
-import br.com.object2x.impl.O2xType;
 import br.com.object2x.testObjects.TestObject;
 
 /**
@@ -24,6 +24,25 @@ import br.com.object2x.testObjects.TestObject;
 public class O2JsonTest {
 
 	private O2xBuilder o2xBuilder = new O2xBuilder(O2xType.JSON);
+	
+	
+	@Test
+	public void testDeserializeStringType() {
+		List<TestObject> listTestObject = new ArrayList<TestObject>();
+		listTestObject.add(new TestObject());
+		listTestObject.add(new TestObject());
+		listTestObject.add(new TestObject());
+		
+		try {
+			String jsonTest = this.o2xBuilder.createO2x().serializeString(listTestObject);
+			List<TestObject> listResultTestObject = this.o2xBuilder.createO2x().deserialize(jsonTest, new GenericsTypeClass<List<TestObject>>());
+			assertNotNull(listResultTestObject);
+			assertTrue(listResultTestObject.equals(listTestObject));
+		} catch (O2xTransformException e) {
+			fail();
+		} 
+	}
+	
 	
 	@Test
 	public void testDeserializeStringClassOfT() {

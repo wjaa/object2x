@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.InputStream;
 
 import br.com.object2x.exception.O2xTransformException;
+import br.com.object2x.impl.GenericsTypeClass;
 
 
 /**
@@ -35,6 +36,15 @@ public interface O2x{
 	 * @return Objeto convertido.
 	 */
 	<T>T deserialize(InputStream serialized, Class<T> clazz) throws O2xTransformException;
+	
+	
+	
+	/**
+	 * Transforma um objeto notado em um Objeto Java (POJO).
+	 * @param serialized String serializada.
+	 * @return Objeto convertido.
+	 */
+	<T>T deserialize(String serialized, GenericsTypeClass<T> typedClazz) throws O2xTransformException;
 	
 	
 	/**

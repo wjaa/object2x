@@ -30,6 +30,13 @@ final class O2Xml extends AbstractO2x {
 		this.xStream.registerConverter(new O2XmlConverter(transformStrategy.getDateFormat()));
 		
 	}
+	
+	@Override
+	public <T> T deserialize(String serialized, GenericsTypeClass<T> typedClazz)
+			throws O2xTransformException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -89,9 +96,5 @@ final class O2Xml extends AbstractO2x {
 			this.xStream.processAnnotations(clazz);
 		}
 	}
-
-
-	
-
 	
 }
