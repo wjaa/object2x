@@ -41,6 +41,8 @@ public class O2xBuilder {
 		switch (this.o2xType) {
 			case JSON: return this.createO2Json();
 			case XML: return this.createO2Xml();
+			case CSV: return this.createO2Csv();
+			case XLS: return this.createO2Xls();
 		}
 		return null;
 	}
@@ -52,6 +54,15 @@ public class O2xBuilder {
 	private O2x createO2Json() {
 		return new O2Json(this.transformStrategy);
 	}
+	
+	private O2x createO2Csv() {
+		return new O2Csv(this.transformStrategy);
+	}
+	
+	private O2x createO2Xls() {
+		return new O2Xls(this.transformStrategy);
+	}
+	
 	
 	
 	public void resetStrategy(){

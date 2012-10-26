@@ -35,7 +35,7 @@ public class O2JsonTest {
 		
 		try {
 			String jsonTest = this.o2xBuilder.createO2x().serializeString(listTestObject);
-			List<TestObject> listResultTestObject = this.o2xBuilder.createO2x().deserialize(jsonTest, new GenericsTypeClass<List<TestObject>>());
+			List<TestObject> listResultTestObject = this.o2xBuilder.createO2x().deserialize(jsonTest, new GenericsTypeClass<List<TestObject>>(){});
 			assertNotNull(listResultTestObject);
 			assertTrue(listResultTestObject.equals(listTestObject));
 		} catch (O2xTransformException e) {

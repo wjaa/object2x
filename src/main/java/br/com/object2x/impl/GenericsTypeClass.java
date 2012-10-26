@@ -17,7 +17,7 @@ import com.google.gson.internal.$Gson$Types;
  *
  * @param <T>
  */
-public class GenericsTypeClass<T> {
+public abstract class GenericsTypeClass<T> {
 
 	private Type type;
 	private Class<T> clazz;

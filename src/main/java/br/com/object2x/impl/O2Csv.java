@@ -7,7 +7,7 @@ import br.com.object2x.AbstractO2x;
 import br.com.object2x.TransformStrategy;
 import br.com.object2x.exception.O2xTransformException;
 
-public class O2Csv extends AbstractO2x {
+class O2Csv extends AbstractO2x {
 
 	O2Csv(){
 		super(DEFAULT_TRANSFORM_STRATEGY);
@@ -23,7 +23,9 @@ public class O2Csv extends AbstractO2x {
 	@Override
 	public <T> T deserialize(String serialized, Class<T> clazz)
 			throws O2xTransformException {
-		// TODO Auto-generated method stub
+		String [] linha = serialized.split("\n");
+		
+		
 		return null;
 	}
 
